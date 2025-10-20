@@ -1,0 +1,21 @@
+---
+# tasks file for setup_apache_role
+- name: Install {{rh_pkg}} package
+  package:
+    name: "{{rh_pkg}}"
+    state: latest
+  when: ansible_os_family == "RedHat"
+  notify: start {{rh_pkg}} service
+
+- name: Install {{db_pkg}} package
+  package:
+    name: "{{db_pkg}}"
+    state: latest
+  when: ansible_os_family == "Debian"
+  notify: start {{db_pkg}} service
+
+- name: copy index.html
+  copy:
+    src: index.html
+    dest: /var/www/html
+    mode: 0642

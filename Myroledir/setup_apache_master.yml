@@ -1,0 +1,6 @@
+---
+- name: This is a playbook is master file
+  hosts: all
+  become: true
+  roles:
+    - setup_apache_role 
