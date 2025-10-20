@@ -1,0 +1,10 @@
+---
+- name: This is a playbook for install packages
+  hosts: all
+  become: true
+  tasks: 
+    - name: Install Git Package
+      package:
+        name: git
+        state: installed   #installed/present/latest    
+        

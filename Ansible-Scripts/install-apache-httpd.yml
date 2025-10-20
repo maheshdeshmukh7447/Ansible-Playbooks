@@ -1,0 +1,33 @@
+---
+- name: This is a Playbook is to install httpd and apache2 package
+  hosts: all
+  become: true
+  tasks:
+    - name: Install httpd package
+      package:
+        name: httpd
+        state: present
+      when: ansible_os_family == "RedHat"
+
+    - name: start httpd sevice
+      service: 
+         name: httpd
+         state: started
+      when: ansible_os_family == "RedHAt"
+
+    - name: Install apache2 package
+      package: 
+         name: apache2
+         state: latest
+      when: ansible_os_family == "Debian"
+   
+    - name: Start apache2 service
+      service:
+         name: apache2
+         state: started
+      when: ansible_os_family == "Debian"
+
+    - name: copy index.html
+      copy: 
+         src: /home/ansadmin/index.html
+         dest: /var/www/html   

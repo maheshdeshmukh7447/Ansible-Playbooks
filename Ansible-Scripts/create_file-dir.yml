@@ -1,0 +1,14 @@
+---
+- name: This is a Playbook is to delete a file and directory
+  hosts: all
+  become: true
+  tasks:
+    - name: delete a file
+      file:
+        path: /tmp/myfile
+        state: absent
+
+    - name: delete a directory
+      file:
+        path: /tmp/dir1
+        state: absent    

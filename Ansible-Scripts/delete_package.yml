@@ -1,0 +1,9 @@
+---
+- name: This is a Playbook is to delete package
+  hosts: all 
+  become: true 
+  tasks:
+    - name: unistall package
+      package:
+        name: git
+        state: removed     #removed/absent

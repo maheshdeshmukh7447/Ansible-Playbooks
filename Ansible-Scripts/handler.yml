@@ -1,0 +1,16 @@
+---
+- name: This is Playbook file is to handler
+  hosts: all
+  become: true
+  tasks:
+    - name: Install httpd package
+      package:
+        name: httpd
+        state: present
+      notify: Start service
+
+  handlers:
+    - name: Start service
+      service:
+        name: httpd
+        state: started

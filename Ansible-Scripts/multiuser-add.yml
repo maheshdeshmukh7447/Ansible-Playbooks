@@ -1,0 +1,13 @@
+---
+- name: This is a Playbook is to add multiple users
+  hosts: all
+  become: true
+  tasks: 
+   - name: create multi users
+     user:
+       name: '{{item}}' 
+       state: present
+     with_items: 
+       - Raj
+       - Ram
+       - Ramesh 

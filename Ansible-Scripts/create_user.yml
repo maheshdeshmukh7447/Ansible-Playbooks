@@ -1,0 +1,9 @@
+---
+- name: This is a Playbook is to create a user
+  hosts: all 
+  become: true
+  tasks:
+    - name: creating a user deshmukh
+      user: 
+        name:
+           deshmukh

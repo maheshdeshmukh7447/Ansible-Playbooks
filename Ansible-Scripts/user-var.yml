@@ -1,0 +1,10 @@
+---
+- name: This is a Playbook is to User using Var
+  hosts: all
+  become: true
+  var: 
+    user: mukesh
+  tasks:
+  - name: Creating user using var
+    user: 
+      name: '{{user}}'  

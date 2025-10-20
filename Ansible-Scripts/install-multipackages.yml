@@ -1,0 +1,9 @@
+---
+- name: This is a Playbook is to install multiple packages
+  hosts: all
+  become: true
+  tasks: 
+    - name: install packages
+      package:
+        name: ['git','telnet','tree','docker']
+        state: present

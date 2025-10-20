@@ -1,0 +1,9 @@
+---
+- name: This is a Playbook is to create a directory 
+  hosts: all
+  become: true
+  tasks: 
+   - name: create a directory
+     file:
+       path: /tmp/dir1
+       state: directory    
